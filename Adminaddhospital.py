@@ -6,7 +6,7 @@ def test_addhospital():
         # Wait for any initial operations to complete
         page.wait_for_timeout(2000)
         a = adminlogin(page)
-        
+        # Check whether the admin is able to add hospital
         # Navigate to the hospital creation page
         page.locator('a.sidebar-link[href="#/hospital"]').click()
         page.wait_for_timeout(1000)
