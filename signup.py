@@ -1,13 +1,4 @@
-# import re
-# from playwright.sync_api import sync_playwright, Page, expect
-# Code for chromium
-# def global_helper_function() -> (Page, 'Browser', 'Playwright'):
-#     """Set up the browser and return a Page instance."""
-#     playwright = sync_playwright().start()
-#     browser = playwright.msedge.launch(headless=False)  # Set headless to False to see the browser
-#     page = browser.new_page()
-#     return page, browser, playwright
-# code for edge.
+
 from playwright.sync_api import sync_playwright, Page, Browser,expect
 from functionalities import global_helper_function
 
