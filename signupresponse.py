@@ -1,7 +1,5 @@
 # Source code for saving the response of signup id,email in json file with in the same directorary
 
-
-
 from playwright.sync_api import sync_playwright, Page, Browser, expect
 from functionalities import global_helper_function
 
@@ -48,9 +46,17 @@ def testsignup1usingcsv(data):
                 # Extracting the user ID and email from the response
                 user_id = response_body.get("data", {}).get("id")
                 email = response_body.get("data", {}).get("email")
+                user_type=response_body.get("data",{}.get("user_type"))
+                security_question=response_body.get("data",{}.get("security_question"))
+                security_answer=response_body.get("data",{}.get("security_answer"))
+                username=response_body.get("data",{}.get("username"))                
 
                 response_data['id'] = user_id
                 response_data['email'] = email
+                response_data['user_type']=user_type
+                response_data['security_question']=security_question
+                response_data['security_answer']=security_answer
+                response_data['username']=username
                 response_data['status'] = "success"
                 response_data['message'] = response_body.get("message", "No message in response")
                 print("Captured response data:", response_data)

@@ -1,6 +1,42 @@
 {
-    "id": 196,
-    "email": "lwsswdxbqgbs14s@gmail.com",
+    "id": 197,
+    "email": "g@gmail.com",
+    "user_type": {
+        "id": 197,
+        "security_question": "What is your pet's name?",
+        "security_answer": "Ananya",
+        "last_login": null,
+        "username": "sqgfwa",
+        "email": "g@gmail.com",
+        "user_type": "pending"
+    },
+    "security_question": {
+        "id": 197,
+        "security_question": "What is your pet's name?",
+        "security_answer": "Ananya",
+        "last_login": null,
+        "username": "sqgfwa",
+        "email": "g@gmail.com",
+        "user_type": "pending"
+    },
+    "security_answer": {
+        "id": 197,
+        "security_question": "What is your pet's name?",
+        "security_answer": "Ananya",
+        "last_login": null,
+        "username": "sqgfwa",
+        "email": "g@gmail.com",
+        "user_type": "pending"
+    },
+    "username": {
+        "id": 197,
+        "security_question": "What is your pet's name?",
+        "security_answer": "Ananya",
+        "last_login": null,
+        "username": "sqgfwa",
+        "email": "g@gmail.com",
+        "user_type": "pending"
+    },
     "status": "success",
     "message": "No message in response"
 }

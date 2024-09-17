@@ -59,6 +59,7 @@ def test_has_title_and_click_login(data):
     page, browser, playwright = global_helper_function()
     username = data["username"]
     password = data["password"]
+    # errormessage=data["errormessage"]
     
     try:
         
@@ -76,6 +77,18 @@ def test_has_title_and_click_login(data):
         
 
         page.get_by_role("button", name="Login").click()
+        # page.wait_for_selector("div.Toastify__toast-body", timeout=5000)  # Adjust the selector based on your HTML structure
+        
+        # # Locate the toast notification
+        # toast = page.locator("div.Toastify__toast-body")
+        # toast_text = toast.text_content().strip()
+        
+        # # Define the expected toast message
+        # expected_toast_message = "Invalid Username or password"
+        
+        # # Validate the toast message
+        # assert toast_text == expected_toast_message, f"Expected toast message '{expected_toast_message}', but got '{toast_text}'"
+        # print("Toast message validation passed.")
         
         page.wait_for_timeout(10000)  # Wait for 10 seconds
        
