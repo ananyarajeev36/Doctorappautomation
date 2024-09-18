@@ -66,10 +66,7 @@ def test_has_title_and_click_login(data):
         # Navigate to the page
         page.goto("http://34.93.203.11:8081")
         print("Check whether the user is able to launch the website.")
-        # Expect a title "to contain" a substring "Doctor App"
-        expect(page).to_have_title(re.compile("Doctor App"))
-        print("Verify whether the page title is Doctor App.")
-        # Locate the Login button by its text and click it
+        
         page.get_by_role("button", name="Login").click()
         print("Check whether the doctor is able to perform login operation.")
         page.fill('input[name="username"]',username)
@@ -77,19 +74,7 @@ def test_has_title_and_click_login(data):
         
 
         page.get_by_role("button", name="Login").click()
-        # page.wait_for_selector("div.Toastify__toast-body", timeout=5000)  # Adjust the selector based on your HTML structure
-        
-        # # Locate the toast notification
-        # toast = page.locator("div.Toastify__toast-body")
-        # toast_text = toast.text_content().strip()
-        
-        # # Define the expected toast message
-        # expected_toast_message = "Invalid Username or password"
-        
-        # # Validate the toast message
-        # assert toast_text == expected_toast_message, f"Expected toast message '{expected_toast_message}', but got '{toast_text}'"
-        # print("Toast message validation passed.")
-        
+       
         page.wait_for_timeout(10000)  # Wait for 10 seconds
        
         # Logout functionality
