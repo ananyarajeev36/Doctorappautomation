@@ -46,10 +46,10 @@ def testsignup1usingcsv(data):
                 # Extracting the user ID and email from the response
                 user_id = response_body.get("data", {}).get("id")
                 email = response_body.get("data", {}).get("email")
-                user_type=response_body.get("data",{}.get("user_type"))
-                security_question=response_body.get("data",{}.get("security_question"))
-                security_answer=response_body.get("data",{}.get("security_answer"))
-                username=response_body.get("data",{}.get("username"))                
+                user_type=response_body.get("data",{}).get("user_type")
+                security_question=response_body.get("data",{}).get("security_question")
+                security_answer=response_body.get("data",{}).get("security_answer")
+                username=response_body.get("data",{}).get("username")                
 
                 response_data['id'] = user_id
                 response_data['email'] = email
