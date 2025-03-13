@@ -9,7 +9,7 @@
 # #     # Get the page, browser, and playwright from the global helper function
 # #     page, browser, playwright = global_helper_function()
     
-# #     try:
+# #     try:  
 # #         # Navigate to the page
 # #         page.goto("http://34.93.203.11:8081")
 # #         print("Check whether the user is able to launch the website.")
