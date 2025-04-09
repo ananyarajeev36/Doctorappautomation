@@ -23,24 +23,18 @@ def test_simple_login():
 
         page.locator("//button[contains(text(), 'LOGIN')]").first.click()
         print("The user should be redirected to the login page.")
-        page.wait_for_timeout(5000)  # Adjust timeout if necessary
-        page.evaluate("window.scrollBy(0, 3000)")
+         # Adjust timeout if necessary
+        page.wait_for_timeout(10000)
+        page.get_by_text("Photos").click()
+        page.wait_for_timeout(6000)
+        page.evaluate("window.scrollBy(0, 8000)")
+        page.locator('img[alt="Upload"]').click()
+        print("hai")
+        page.wait_for_timeout(10000)
         
-        page.locator("//button[contains(text(), 'EDIT')]").first.click()
-        page.wait_for_timeout(5000)
-        
-        page.locator('[name="profile_headline"]').fill("Athulya")
-        page.locator("//input[@placeholder='Profile heading (Max 30 characters)']").fill("Athulya")
-        
-        page.locator("//input[@placeholder='Enter your full legal name']").fill("Athulya V Nair")
-        
-        page.locator("//input[@placeholder='Mention your stage name']").fill("Athuzzz")
+        print("hai")
 
-        page.locator("//input[@placeholder='Provide weight']").fill(45)
-        page.locator("//input[@placeholder='Provide height']").fill(145)
-        page.locator('[name="number_of_movies"]').fill("12")
-        page.locator('[name="number_of_television_roles"]').fill("12")
-        page.locator('[name="number_of_theater_roles"]').fill("12")
+
 
 
         

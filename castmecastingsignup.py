@@ -7,7 +7,7 @@ def test_simple_login():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)  # Set to True to run in headless mode
         page = browser.new_page()
-        
+          
         # Navigate to the login page
         page.goto(URL)
         print("Opened the website.")
@@ -23,7 +23,7 @@ def test_simple_login():
         page.wait_for_timeout(5000)
         # Click login button
 
-        page.locator("//button[contains(text(), 'SUBMIT')]").first.click()
+        page.locator("//button[conta ins(text(), 'SUBMIT')]").first.click()
         print("The user should be redirected to the login page.")
         page.wait_for_timeout(5000)  # Adjust timeout if necessary
         
