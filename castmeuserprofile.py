@@ -38,6 +38,13 @@ def test_simple_login():
         page.locator("//input[@placeholder='Mention your stage name']").fill("Athuzzz")
         page.wait_for_timeout(2000)
         page.select_option('select[name="gender"]', value="Male")
+        page.wait_for_timeout(2000)
+        page.fill('input[name="dob"]', '2000-01-01')
+        page.wait_for_timeout(2000)
+    # Optional: assert the value has been set
+        dob_value = page.input_value('input[name="dob"]')
+        assert dob_value == '2000-01-01'
+        print("DOB set to:", dob_value)
         
         
 
@@ -79,21 +86,21 @@ def test_simple_login():
         page.wait_for_timeout(1000)
         print("hai")
         page.select_option('select[name="countryCode1"]', value="+358")
-        page.locator('input[name="phoneNo"]').fill("1234556789893")
+        page.locator('input[name="phoneNo"]').fill("12345567")
         print("hai")
         page.wait_for_timeout(1000)
         page.select_option('select[name="countryCode2"]', value="+358")
-        page.locator('input[name="agentPhone"]').fill("1234556789893")
+        page.locator('input[name="agentPhone"]').fill("123455678")
         page.wait_for_timeout(1000)
         page.select_option('select[name="countryCode3"]', value="+358")
-        page.locator('input[name="pr_phoneNo"]').fill("1234556789893")
+        page.locator('input[name="pr_phoneNo"]').fill("123455673")
 
         page.wait_for_timeout(3000)
-        page.locator("//input[@placeholder='Enter your skills in details. in maximum 200 characters.']").fill("Acting")
-        
-        page.locator("//input[@placeholder='Enter your trainings in details. in maximum 200 characters.']").fill("Acting")
-        page.locator("//input[@placeholder='Enter your awards in details. in maximum 200 characters.']").fill("Acting")
+        page.fill('textarea[name="skills"]', 'Diction & Clarity – Speaking clearly for stage and screen.On-Camera Presence – Adapting performances for film and television.')
+        page.fill('textarea[name="training"]', 'Accent & Dialect Training – Adapting speech for different roles.Breath Control & Projection – Essential for theater performances.')
+        page.fill('textarea[name="awards"]', '  Improv Training – Enhances spontaneity and quick thinking.Scene Work – Practicing real scripts to improve performance.. Golden Globe Awards – Recognizes excellence in film and television')
 
+        
         page.wait_for_timeout(1000)
 
         page.select_option('select[name="country"]', value="Afghanistan")
@@ -106,10 +113,18 @@ def test_simple_login():
         page.wait_for_timeout(1000)
         page.locator('[name="number_of_theater_roles"]').fill("12")
         page.wait_for_timeout(2000)
-        page.get_by_role("button",name="Save")
+        page.get_by_role("button",name="Save").click()
         page.wait_for_timeout(10000)
 
+        page.wait_for_url("https://thecastme.com/#/talent/view-profile")
+
+# Confirm user reached next page
+        assert "https://thecastme.com/#/talent/view-profile" in page.url
+        
         print("The profile updated successfully")
+        page.wait_for_timeout(10000)
+        current_url = page.url
+        print("Current URL:", current_url)
         
 
         # Close the browser
