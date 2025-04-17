@@ -12,7 +12,7 @@ def test_simple_login():
         page.goto(URL)
         print("Opened the website.")
         page.wait_for_timeout(1000)
-        # Click on the login button
+        # Click on the login button     
        
         page.locator("//input[@placeholder='Email']").fill("athulya@gmail.com")
         page.wait_for_timeout(4000)
@@ -107,6 +107,9 @@ def test_simple_login():
         page.select_option('select[name="state"]', value="Badakhshan")
         page.select_option('select[name="city"]', value="Ashkāsham")
         print("Hello")
+
+
+        
         page.locator('[name="number_of_movies"]').fill("12")
         page.wait_for_timeout(1000)
         page.locator('[name="number_of_television_roles"]').fill("12")

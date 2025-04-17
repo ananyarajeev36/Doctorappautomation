@@ -1,14 +1,13 @@
-from playwright.sync_api import sync_playwright
+from castmecommonplaywright import global_helper_function
 
 # Define login details
 URL = "https://thecastme.com/#/talent/sign-up"
-expectedurl="https://thecastme.com/#/talent/login"
-def test_simple_login():
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)  # Set to True to run in headless mode
-        page = browser.new_page()
-          
-        # Navigate to the login page
+expectedurl="https://thecastme.com/#/talent/sign-up"
+
+def test_signup():
+    page, browser, playwright = global_helper_function()
+    try:
+        # Wait for any initial operations to complete
         page.goto(URL)
         print("Opened the website.")
         page.wait_for_timeout(1000)
@@ -19,11 +18,9 @@ def test_simple_login():
         page.wait_for_timeout(4000)
         page.locator("//input[@placeholder='Password']").fill("Ananya2006@")
         page.locator("//input[@placeholder='Full Name']").fill("Ananya")
-        # page.locator("//button[contains(text(), 'LOGIN')]").first.click()
-        page.wait_for_timeout(5000)
-        # Click login button
-
-        page.locator("//button[conta ins(text(), 'SUBMIT')]").first.click()
+       
+        page.get_by_role("button",name="SUBMIT").click()
+       
         print("The user should be redirected to the login page.")
         page.wait_for_timeout(5000)  # Adjust timeout if necessary
         
@@ -31,11 +28,13 @@ def test_simple_login():
         assert actual_url == expectedurl, f"URL Mismatch! Expected: {expectedurl}, but got: {actual_url}"
         page.wait_for_timeout(5000)
 
-       
-        
-        
-        # Close the browser
+     
+    finally:
+        # Close the browser and Playwright
         browser.close()
+        playwright.stop()
+
+
 
 if __name__ == "__main__":
-    test_simple_login()
+    test_signup()
